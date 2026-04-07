@@ -38,7 +38,7 @@ public class comparesSort {
         }
     }
 
-    // Median of Three Pivot
+    // Median of three pivot ele's for better pivot selction
     public static int medianOfThree(int[] arr, int low, int high) {
         int mid = (low + high) / 2;
 
@@ -49,7 +49,7 @@ public class comparesSort {
         return mid;
     }
 
-    // Partition
+    
     public static int partition(int[] arr, int low, int high) {
         int pivotIndex = medianOfThree(arr, low, high);
         int pivot = arr[pivotIndex];
@@ -69,7 +69,7 @@ public class comparesSort {
         return i;
     }
 
-    // Quick Sort
+    // function for quicksort call
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -78,7 +78,7 @@ public class comparesSort {
         }
     }
 
-    // Hybrid Sort
+    // Hybrid Sort - quick sort for large size array and insertion sort for small size array
     public static void hybridSort(int[] arr, int low, int high) {
         while (high - low > THRESHOLD) {
             int pi = partition(arr, low, high);
@@ -104,8 +104,6 @@ public class comparesSort {
     public static void main(String[] args) {
 
         int[] sizes = {100, 1000, 5000, 10000, 200000};
-
-        // JVM Warm-up
         for (int i = 0; i < 5; i++) {
             int[] temp = generateArray(1000);
             quickSort(temp, 0, temp.length - 1);
@@ -143,7 +141,6 @@ public class comparesSort {
             System.out.println("Quick Avg: " + (quickTotal / RUNS) + " ns");
             System.out.println("Insertion Avg: " + (insertionTotal / RUNS) + " ns");
             System.out.println("Hybrid Avg: " + (hybridTotal / RUNS) + " ns");
-            System.out.println("-----------------------------");
         }
     }
 }

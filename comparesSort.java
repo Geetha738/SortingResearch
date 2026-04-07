@@ -26,6 +26,7 @@ public class comparesSort {
         }
     }
 
+// Sorts elements between indices low and high using insertion sort
     public static void insertionSortRange(int[] arr, int low, int high) {
         for (int i = low + 1; i <= high; i++) {
             int key = arr[i];
